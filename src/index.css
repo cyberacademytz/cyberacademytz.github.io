@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Orbitron:wght@400;500;700;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Tanzania Cyber Academy - Hacker Theme Design System */
+@layer base {
+  :root {
+    /* Hacker Dark Theme */
+    --background: 0 0% 4%;
+    --background-secondary: 0 0% 7%;
+    --background-tertiary: 0 0% 10%;
+    --foreground: 120 100% 85%;
+
+    --card: 0 0% 6%;
+    --card-foreground: 120 100% 85%;
+
+    --popover: 0 0% 5%;
+    --popover-foreground: 120 100% 85%;
+
+    --primary: 120 100% 50%;
+    --primary-foreground: 0 0% 0%;
+    --primary-glow: 120 100% 60%;
+
+    --secondary: 180 100% 50%;
+    --secondary-foreground: 0 0% 0%;
+    --secondary-glow: 180 100% 60%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 120 50% 65%;
+
+    --accent: 300 100% 50%;
+    --accent-foreground: 0 0% 100%;
+    --accent-glow: 300 100% 60%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 120 30% 20%;
+    --input: 0 0% 12%;
+    --ring: 120 100% 50%;
+
+    --radius: 0.25rem;
+
+    /* Custom Hacker Colors */
+    --matrix-green: 120 100% 50%;
+    --terminal-green: 120 80% 40%;
+    --neon-cyan: 180 100% 50%;
+    --glitch-purple: 280 100% 70%;
+    --warning-orange: 30 100% 50%;
+    --error-red: 0 100% 50%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(120 100% 40%), hsl(120 100% 60%));
+    --gradient-secondary: linear-gradient(135deg, hsl(180 100% 40%), hsl(180 100% 60%));
+    --gradient-accent: linear-gradient(135deg, hsl(300 100% 50%), hsl(280 100% 70%));
+    --gradient-cyber: linear-gradient(90deg, hsl(120 100% 50%), hsl(180 100% 50%), hsl(300 100% 50%));
+    --gradient-matrix: linear-gradient(180deg, transparent 0%, hsl(120 100% 50% / 0.1) 50%, transparent 100%);
+
+    /* Shadows & Effects */
+    --shadow-neon: 0 0 20px hsl(var(--primary) / 0.5);
+    --shadow-cyber: 0 0 30px hsl(var(--secondary) / 0.3);
+    --shadow-glitch: 0 0 40px hsl(var(--accent) / 0.4);
+
+    /* Animation Timings */
+    --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --sidebar-background: 0 0% 5%;
+    --sidebar-foreground: 120 100% 85%;
+    --sidebar-primary: 120 100% 50%;
+    --sidebar-primary-foreground: 0 0% 0%;
+    --sidebar-accent: 0 0% 8%;
+    --sidebar-accent-foreground: 120 100% 85%;
+    --sidebar-border: 120 30% 20%;
+    --sidebar-ring: 120 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-mono;
+    font-family: 'Fira Code', 'Courier New', monospace;
+  }
+
+  /* Hacker Text Effects */
+  .text-matrix {
+    @apply text-primary;
+    text-shadow: 0 0 10px hsl(var(--primary) / 0.5);
+  }
+
+  .text-neon {
+    @apply text-secondary;
+    text-shadow: 0 0 10px hsl(var(--secondary) / 0.8);
+  }
+
+  .text-glitch {
+    @apply text-accent;
+    text-shadow: 0 0 15px hsl(var(--accent) / 0.6);
+  }
+
+  /* Background Patterns */
+  .bg-matrix {
+    background: radial-gradient(circle at 50% 50%, hsl(var(--primary) / 0.1) 0%, transparent 50%),
+                linear-gradient(45deg, transparent 49%, hsl(var(--primary) / 0.05) 50%, transparent 51%);
+  }
+
+  .bg-circuit {
+    background-image: 
+      radial-gradient(circle at 25% 25%, hsl(var(--primary) / 0.1) 2px, transparent 2px),
+      radial-gradient(circle at 75% 75%, hsl(var(--secondary) / 0.1) 2px, transparent 2px);
+    background-size: 50px 50px;
+  }
+
+  /* Animations */
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  .animate-pulse-neon {
+    animation: pulse-neon 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .animate-glitch {
+    animation: glitch 3s infinite;
+  }
+
+  .animate-typing {
+    animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
+  }
+
+  @keyframes glow {
+    from {
+      box-shadow: 0 0 20px hsl(var(--primary) / 0.2);
+    }
+    to {
+      box-shadow: 0 0 30px hsl(var(--primary) / 0.8);
+    }
+  }
+
+  @keyframes pulse-neon {
+    0%, 100% {
+      opacity: 1;
+      filter: brightness(1);
+    }
+    50% {
+      opacity: 0.8;
+      filter: brightness(1.2);
+    }
+  }
+
+  @keyframes glitch {
+    0%, 100% {
+      transform: translate(0);
+    }
+    20% {
+      transform: translate(-2px, 2px);
+    }
+    40% {
+      transform: translate(-2px, -2px);
+    }
+    60% {
+      transform: translate(2px, 2px);
+    }
+    80% {
+      transform: translate(2px, -2px);
+    }
+  }
+
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+
+  @keyframes blink-caret {
+    from, to {
+      border-color: transparent;
+    }
+    50% {
+      border-color: hsl(var(--primary));
+    }
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary));
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary-glow));
+  }
+}
