@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import cyberLabImage from "@/assets/cyber-lab.jpg";
 import ctfCompetitionImage from "@/assets/ctf-competition.jpg";
+import { Link } from "react-router-dom";
 
 const FeaturesSection = () => {
   const features = [
@@ -102,8 +103,7 @@ const FeaturesSection = () => {
           <h2 className="font-orbitron text-4xl sm:text-5xl font-bold mb-6">
             <span className="text-matrix">CYBER</span>{" "}
             <span className="text-neon-cyan">LEARNING</span>{" "}
-            <span className="text-glitch-purple">PLATFORM</span>
-          </h2>
+            <span className="text-glitch-purple">PLATFORM</span></h2>
           <p className="text-xl text-muted-foreground font-mono max-w-3xl mx-auto">
             Master cybersecurity through immersive learning experiences, 
             cutting-edge research, and competitive challenges
@@ -196,13 +196,15 @@ const FeaturesSection = () => {
               Join thousands of cybersecurity professionals and enthusiasts 
               advancing their skills at Tanzania Cyber Academy
             </p>
+            <Link to="/Register">
             <Button 
               size="lg"
               className="bg-cyan-500 hover:bg-cyan-400 text-black font-mono font-bold text-lg px-8 py-4 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_#00ffff]"
             >
               <Terminal className="mr-2 h-5 w-5" />
-              Enroll Now
+              Join & Start Learning Now!
             </Button>
+            </Link>
           </div>
         </div>
       </div>

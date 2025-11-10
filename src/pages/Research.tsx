@@ -1,21 +1,17 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-
-// Define the type for a research paper
-type Paper = {
-  title: string;
-  authors: string[];
-  category: string;
-  abstract: string;
-  date?: string; // optional
-};
+import { Button } from "@/components/ui/button";
+import { ExternalLink } from "lucide-react";
 
 const Research = () => {
-  // Your papers array, strongly typed
-  const papers: Paper[] = [
+  const authorInfo = {
+    name: "cyber@academy",
+    link: "https://cse.udsm.ac.tz/view-staffs/staff-details/107",
+  };
+
+  const papers = [
     {
       title: "AI-Powered Threat Detection",
-      authors: ["Authors", "Anonymous"],
       category: "Machine Learning",
       abstract:
         "Developing machine learning models for real-time cybersecurity threat detection and response in African networks.",
@@ -23,7 +19,6 @@ const Research = () => {
     },
     {
       title: "Mobile Banking Security in East Africa",
-      authors: ["Authors", "Anonymous"],
       category: "Financial Security",
       abstract:
         "Comprehensive analysis of mobile payment security vulnerabilities and mitigation strategies for East African markets.",
@@ -31,14 +26,13 @@ const Research = () => {
     },
     {
       title: "IoT Device Security Framework",
-      authors: ["Authors", "Anonymous"],
       category: "IoT Security",
       abstract:
         "Proposing a security framework for IoT deployments in smart city initiatives across Tanzania.",
+      date: "2025-03-01",
     },
     {
       title: "Blockchain for Secure Voting Systems",
-      authors: ["Authors", "Anonymous"], // ✅ fixed typo here
       category: "Blockchain",
       abstract:
         "Implementing blockchain technology for transparent and secure electoral systems in developing nations.",
@@ -49,18 +43,21 @@ const Research = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      <main className="pt-16">
+      <main className="pt-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          {/* Header */}
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-6xl font-orbitron font-bold mb-6">
               <span className="text-matrix animate-pulse-neon">CYBER</span>{" "}
-              <span className="text-neon-cyan">RESEARCH</span>
+              <span className="text-neon-cyan">PROJECTS</span>
             </h1>
             <p className="text-xl text-muted-foreground font-mono max-w-3xl mx-auto">
-              Cutting-edge cybersecurity research and collaborative projects
+              Cutting-edge cybersecurity research and projects
+              led by <span className="text-neon-cyan">cyber@academy</span>
             </p>
           </div>
 
+          {/* Papers */}
           <div className="space-y-8">
             {papers.map((paper, index) => (
               <div
@@ -71,27 +68,41 @@ const Research = () => {
                   <span className="px-3 py-1 bg-primary/10 text-primary border border-primary/20 rounded text-xs font-mono">
                     {paper.category}
                   </span>
-                  {paper.date && ( // ✅ only show if date exists
+                  {paper.date && (
                     <span className="text-muted-foreground font-mono text-sm">
                       {paper.date}
                     </span>
                   )}
                 </div>
-                <h3 className="text-xl font-orbitron font-bold text-matrix mb-2 group-hover:text-neon-cyan transition-colors">
+
+                <h3 className="text-xl font-orbitron font-bold text-matrix mb-3 group-hover:text-neon-cyan transition-colors">
                   {paper.title}
                 </h3>
-                <div className="flex flex-wrap items-center gap-2 mb-3">
-                  {paper.authors.map((author, authorIndex) => (
-                    <span
-                      key={authorIndex}
-                      className="text-neon-cyan font-mono text-sm"
+
+                {/* Author Section */}
+                <div className="flex items-center gap-2 mb-4">
+                  <span className="font-mono text-sm text-muted-foreground">
+                    Author:
+                  </span>
+                  <Button
+                    asChild
+                    size="sm"
+                    variant="outline"
+                    className="text-neon-cyan border-neon-cyan hover:bg-neon-cyan/10 font-mono text-xs"
+                  >
+                    <a
+                      href={authorInfo.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1"
                     >
-                      {author}
-                      {authorIndex < paper.authors.length - 1 ? "," : ""}
-                    </span>
-                  ))}
+                      {authorInfo.name}
+                      <ExternalLink className="h-3 w-3" />
+                    </a>
+                  </Button>
                 </div>
-                <p className="text-muted-foreground font-mono text-sm">
+
+                <p className="text-muted-foreground font-mono text-sm leading-relaxed">
                   {paper.abstract}
                 </p>
               </div>

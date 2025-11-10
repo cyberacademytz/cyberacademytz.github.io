@@ -9,8 +9,9 @@ const Navigation = () => {
     { name: "Home", href: "/", icon: Terminal },
     { name: "Courses", href: "/courses", icon: BookOpen },
     { name: "Labs", href: "/labs", icon: Shield },
-    { name: "Research", href: "/research", icon: Users },
+    { name: "Projects", href: "/research", icon: Users },
     { name: "Writeups", href: "/Writeups", icon: Award },
+    { name: "Join Here!", href: "/Register", icon: Users },
   ];
 
   return (

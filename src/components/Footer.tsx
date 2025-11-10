@@ -33,13 +33,13 @@ const Footer = () => {
             <Link to="/" className="text-gray-400 hover:text-cyan-400 transition-colors duration-200">Home</Link>
             <Link to="/courses" className="text-gray-400 hover:text-cyan-400 transition-colors duration-200">Courses</Link>
             <Link to="/labs" className="text-gray-400 hover:text-cyan-400 transition-colors duration-200">Labs</Link>
-            <Link to="/research" className="text-gray-400 hover:text-cyan-400 transition-colors duration-200">Research</Link>
+            <Link to="/research" className="text-gray-400 hover:text-cyan-400 transition-colors duration-200">Projects</Link>
             <Link to="/Writeups" className="text-gray-400 hover:text-cyan-400 transition-colors duration-200">Writeups</Link>
           </div>
 
           {/* Connect / Social */}
           <div className="flex flex-col space-y-2">
-            <h4 className="text-foreground font-semibold">Connect with us</h4>
+            <h4 className="text-foreground font-semibold">Connect with us <br />& see more Projects</h4>
             <div className="flex space-x-4">
               <a href="https://github.com/cyberacademytz" className="text-gray-400 hover:text-cyan-400 transition-colors duration-200">
                 <Github className="h-5 w-5" />
@@ -51,7 +51,7 @@ const Footer = () => {
 
         {/* ⚠️ Disclaimer Section */}
         <div className="mt-10 text-center">
-          <p className="text-red-500 text-sm font-semibold">
+          <p className="text-amber-500 text-sm font-semibold">
             ⚠️ DISCLAIMER: All content on this platform is provided strictly for educational and ethical purposes only.  
             Any misuse of information and or knowledge gained for unauthorized activities or law violations is strictly prohibited.  
             The Tanzania CyberSecurity Academy and its affiliates are not responsible for any illegal use of the knowledge gained. 🚫
